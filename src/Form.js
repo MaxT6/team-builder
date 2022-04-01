@@ -9,8 +9,13 @@ import React from "react"
         update(name, value);
     }
 
+    const onSubmit = evt => {
+        evt.preventDefault();
+        submit();
+    }
+
     return (
-        <form>
+        <form onSubmit={onSubmit}>
             <div>
                 <label> First Name
                     <input
@@ -39,12 +44,15 @@ import React from "react"
                 <label> Role
                     <select value={values.role} name="role" onChange={onChange}>
                         <option value="">-- Select a Role --</option>
-                        <option value="Student">frontend engineer</option>
-                        <option value="Instructor">backend engineer</option>
-                        <option value="Alumni">desinger</option>
-                        <option value="Alumni">wizard</option>
+                        <option value="frontendEngineer">frontend engineer</option>
+                        <option value="backendEngineer">backend engineer</option>
+                        <option value="designer">designer</option>
+                        <option value="wizard">wizard</option>
                     </select>
                 </label>
+                <div className='submit'>
+                    <button>submit</button>
+                 </div>
             </div>
         </form>
     )
